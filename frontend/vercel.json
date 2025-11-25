@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "rewrites": [
     {
@@ -10,3 +11,17 @@
     }
   ]
 }
+=======
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/backend/api/index.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/frontend/"
+    }
+  ]
+}
+>>>>>>> 607e85f (Local changes before pulling)
