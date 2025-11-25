@@ -20,11 +20,11 @@ const userSchema = new mongoose.Schema(
     },
     assistantImage: {
       type: String,
-      default: "", // Optional: you can set a default image path
+      default: "", 
     },
     history: {
-      type: [String], // Array of strings
-      default: [],     // Always initialize with empty array
+      type: [String], 
+      default: [],     
     },
   },
   {

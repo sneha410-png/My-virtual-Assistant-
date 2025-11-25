@@ -16,7 +16,7 @@ export const uploadOnCloudinary = async (filePath) => {
     });
 
     fs.unlinkSync(filePath);
-    return uploadResult.secure_url; // ✅ Already URL
+    return uploadResult.secure_url; 
   } catch (error) {
     console.error("❌ Cloudinary Upload Error:", error);
     try {

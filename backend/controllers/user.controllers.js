@@ -3,7 +3,6 @@ import { uploadOnCloudinary } from "../config/cloudinary.js";
 import geminiResponse from "../gemini.js";
 import moment from "moment";
 
-// ✅ Get current user
 const getCurrentUser = async (req, res) => {
   try {
     const user = await User.findById(req.userId).select("-password");
@@ -14,7 +13,6 @@ const getCurrentUser = async (req, res) => {
   }
 };
 
-// ✅ Update assistant
 const updateAssistant = async (req, res) => {
   try {
     const { assistantName, assistantImage } = req.body;
@@ -42,7 +40,7 @@ const updateAssistant = async (req, res) => {
   }
 };
 
-// ✅ Ask Assistant
+
 const askToAssistant = async (req, res) => {
   try {
     const { command } = req.body;
@@ -51,7 +49,6 @@ const askToAssistant = async (req, res) => {
     const user = await User.findById(req.userId);
     if (!user) return res.status(404).json({ response: "User not found" });
 
-    // ✅ Save command to history
     user.history = user.history || [];
     user.history.push(command);
     await user.save();
@@ -99,7 +96,7 @@ const askToAssistant = async (req, res) => {
           response: `Current month is ${moment().format("MMMM")}`,
         });
 
-      // ✅ Directly supported commands
+      
       case "google-search":
       case "youtube-search":
       case "youtube-play":
